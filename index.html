@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Form HTML</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-teal-700 flex justify-center items-center p-5">
+    <div class="bg-white rounded-lg shadow-2xl max-w-2xl w-full p-10">
+        <h1 class="text-3xl font-bold text-gray-800 text-center mb-8">Form Pendaftaran Lengkap</h1>
+        <div class="bg-green-200 text-gray-800 px-4 py-3 rounded-lg mb-6 hidden" id="susccesMessage">✓ Formulir berhasil dikirim!</div>
+
+        <form id="registrationForm" onsubmit="handleSubmit(event)" class="space-y-6">
+
+        <!-- Bagian 1: informasi pribadi -->
+         <div class="text-base font-bold text-gray-800 mb-4 mt-2">Informasi Pribadi</div>
+
+         <div class="mb-5">
+            <label for="fullname" class="block mb-2 text-gray-700 font-semibold text-sm">Nama Lengkap *</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Masukan nama lengkap Anda"
+            class="w-full px-3 py-3 border-2 border-gray-200 rounded-md text-sm focus:outline-none focus:ring-2 transition" required/>
+            <div class="text-red-600 text-xs mt-1 hidden">Nama tidak boleh kosong</div>
+         </div>
+
+         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="mb-5">
+            <label for="email" class="block mb-2 text-gray-700 font-semibold text-sm">Email *</label>
+            <input type="email" id="email" name="email" placeholder="Masukan email Anda" class="w-full px-3 py-2 border-2 border-gray-200 rounded-md text-sm focus:outline-none focus:ring-2 transition" required/>
+            <div class="text-red-600 text-xs mt-1 hidden">Email tidak boleh kosong</div>
+        </div>
+
+        <div class="mb-5">
+            <label for="phone" class="block mb-2 text-gray-700 font-semibold text-sm">Nomor Telepon *</label>
+            <input type="tel" id="phone" name="phone" placeholder="+62 xxx xxx xxx" class="w-full px-3 py-3 border-2 border-gray-200 rounded-md text-sm focus:outline-none focus:ring-2 transition" required/>
+            <div class="text-red-600 text-xs mt-1 hidden">Nomor telepon tidak boleh kosong</div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="mb-5">
+            <label for="birthdate" class="block mb-2 text-gray-700 font-semibold text-sm">Tanggal Lahir</label>
+            <input type="date" id="birthdate" name="birthdate" class="w-full px-3 py-3 border-2 border-gray-200 rounded-md text-sm focus:outline-none focus:ring-2 transition">
+        </div>
+
+        <div class="mb-5">
+            <label for="age" class="block mb-2 text-gray-700 font-semibold text-sm">Usia</label>
+            <input type="number" id="age"  name="age" placeholder="Masukan umur" class="w-full px-3 py-3 border-2 border-gray-200 rounded-md text-sm focus:outline-none focus:ring-2 transition" min="1" max="120"/>
+        </div>
+    </div>
+
+    <!-- Bagian 2: alamat -->
+     <div class="border-t-2 border-gray-200 my-8"></div>
+      <div class="text-base font-bold text-gray-800 mb-4 mt-2">Alamat</div>
+
+      <div class="mb-5">
+        <label for="address" class="block mb-2 text-gray-700 font-semibold text-sm">Alamat Lengkap *</label>
+        <textarea id="address" name="address" rows="4" placeholder="Masukan alamat lengkap Anda" class="w-full px-3 py-3 border-2 border-gray-200 rounded-md text-sm focus:outline-none focus:ring-2 transition" required></textarea>
+        <div class="text-red-600 text-xs mt-1 hidden">Alamat tidak boleh kosong</div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="mb-5">
+            <label for="city" class="block mb-2 text-gray-700 font-semibold text-sm">Kota *</label>
+            <input type="text" id="city" name="city" placeholder="Masukan nama kota" class="w-full px-3 py-3 border-2 border-gray-200 rounded-md text-sm focus:outline-none focus:ring-2 transition" required/> 
+        </div>
+
+
+        <div class="mb-5">
+            <label for="postalcode" class="block mb-2 text-gray-700 font-semibold text-sm">Kode Pos *</label>
+            <input type="text" id="postalcode" name="postalcode" placeholder="Masukan kode pos" class="w-full px-3 py-3 border-2 border-gray-200 rounded-md text-sm focus:outline-none focus:ring-2 transition" required/>
+        </div>
+
+        <div class="mb-5">
+            <label for="province" class="block mb-2 text-gray-700 font-semibold text-sm">Provinsi *</label>
+            <select id="province" name="province" class="w-full px-3 py-3 border-2 border-gray-200 rounded-md text-sm focus:outline-none focus:ring-2 transition" required>
+                <option value="">-- Pilih Provinsi --</option>
+                <option value="jakarta">DKI Jakarta</option>
+                <option value="jawa-barat">Jawa Barat</option>
+                <option value="jawa-tengah">Jawa Tengah</option>
+                <option value="jawa-timur">Jawa Timur</option>
+                <option value="bali">Bali</option>
+                <option value="sumatera-utara">Sumatera Utara</option>
+                <option value="kalimantan-timur">Kalimantan Timur</option>
+                <option value="other">Lainnya</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Bagian 3: pilihan dan preference-->
+     <div class="border-t-2 border-gray-200 my-8"></div>
+     <div class="text-base font-bold text-gray-800 mb-4 mt-2">Pilihan dan Preferensi</div>
+
+        <div class="mb-5">
+            <label class="block mb-2 text-gray-700 font-semibold text-sm">Jenis Kelamin</label>
+            <div class="space-y-6">
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="male" name="gender" value="male" class="w-5 h-5 cursor-pointer" />
+                    <label for="male" class="ml-2 cursor-pointer">Laki-laki</label>
+                    </div>
+                    <div class="flex items-center mb-2">
+                        <input type="radio" id="female" name="gender" value="female" class="w-5 h-5 cursor-pointer" />
+                        <label for="female" class="ml-2 cursor-pointer">Perempuan</label>
+                    </div>
+                </div>
+            </div>
+
+        <div class="mb-5">
+            <label class="block mb-2 text-gray-700 font-semibold text-sm">Minat dan Hobi</label>
+            <div class="space-y-6">
+                <div class="flex items-center mb-2">
+                    <input type="checkbox" id="sports" name="interests" value="sport" class="w-5 h-5 cursor-pointer" />
+                    <label for="sports" class="ml-2 text-gray-700 font-normal">Olahraga</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="checkbox" id="music" name="interests" value="music" class="w-5 h-5 cursor-pointer" />
+                    <label for="music" class="ml-2 text-gray-700 font-normal">Musik</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="checkbox" id="travel" name="interests" value="travel" class="w-5 h-5 cursor-pointer" />
+                    <label for="travel" class="ml-2 text-gray-700 font-normal">Travel</label>       
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="checkbox" id="reading" name="interests" value="reading" class="w-5 h-5 cursor-pointer" />
+                    <label for="reading" class="ml-2 text-gray-700 font-normal">Membaca</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bagian 4: pesan dan persetujuan -->
+         <div class="border-t-2 border-gray-200 my-8"></div>
+            <div class="text-base font-bold text-gray-800 mb-4 mt-2">Pesan dan Persetujuan</div>
+
+        <div class="mb-5">
+            <label for="message" class="block mb-2 text-gray-700 font-semibold text-sm">Pesan Tambahan</label>
+            <textarea id="message" name="message" rows="4" placeholder="Masukan pesan tambahan jika ada" class="w-full px-3 py-3 border-2 border-gray-200 rounded-md text-sm focus:outline-none focus:ring-2 transition"></textarea>
+        </div>
+
+        <div class="mb-5">
+            <div class="flex items-start mb-2">
+                <input type="checkbox" id="agree" name="agree" value="agree" class="w-5 h-5 cursor-pointer mt-1" required/>
+                <label for="agree" class="ml-2 text-gray-700 font-normal">Saya setuju dengan syarat dan ketentuan yang berlaku</label>
+            </div>
+            <div class="text-red-600 text-xs mt-1 hidden">Anda harus menyetujui syarat dan ketentuan</div>
+        </div>
+
+
+    <!-- Buttons -->
+     <div class="flex gap-2 mt-8 justify-center">
+        <button type="reset" class="px-8 py-3 text-base border-none rounded-md cursor-pointer font-semibold transition-all bg-gray-200 text-gray-800 hover:bg-gray-300 max-w-xs flex-1">Reset</button>
+        <button type="submit" class="px-8 py-3 text-base border-none rounded-md cursor-pointer font-semibold transition-all bg-teal-700 text-white hover:bg-teal-800 max-w-xs flex-1">Submit</button>
+     </div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('registrationForm');
+    const successMessage = document.getElementById('susccesMessage');
+
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        document.querySelectorAll('[class*="mb-5"]').
+        forEach(errorDiv => {
+            errorDiv.classList.add('hidden');
+        });
+        document.querySelectorAll('input, textarea, select').forEach(field => {
+            field.classList.remove('border-red-600');
+        });
+
+        let isValid = true;
+
+        const fullname = document.getElementById('fullname');
+        if (!fullname.value.trim()) {
+            const errorDiv = fullname.nextElementSibling;
+            if (errorDiv) errorDiv.classList.remove('hidden');
+            fullname.classList.add('border-red-600');
+            isValid = false;
+        }
+      
+        const email = document.getElementById('email');
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email.value.trim() || !emailRegex.test(email.value)) {
+            const errorDiv = email.nextElementSibling;
+            if (errorDiv) errorDiv.classList.remove('hidden');
+            email.classList.add('border-red-600');
+            isValid = false;
+        }
+
+        const address = document.getElementById('address');
+        if (!address.value.trim()) {
+            const errorDiv = address.nextElementSibling;
+            if (errorDiv) errorDiv.classList.remove('hidden');
+            address.classList.add('border-red-600');
+            isValid = false;
+        }
+
+        const city = document.getElementById('city');
+        if (!city.value.trim()) {
+            const cityContainer = city.closest('.mb-5');
+            city.classList.add('border-red-600');
+            isValid = false;
+        }
+
+        const agree = document.getElementById('agree');
+        if (!agree.checked) {   
+            const agreeContainer = agree.closest('.mb-6');
+            const errorDiv = agreeContainer.querySelector('[class*="text-red"]');
+            if (errorDiv) errorDiv.classList.remove('hidden');
+            isValid = false;
+        }
+
+        if (isValid) {
+            successMessage.classList.remove('hidden');
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            console.log('Form Data:', data);
+
+            setTimeout(() => {
+                form.reset();
+                successMessage.classList.add('hidden');
+            }, 3000);
+        }
+    }
+
+    const emailInput = document.getElementById('email');
+    emailInput.addEventListener('blur', function () {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const errorDiv = emailInput.nextElementSibling;
+        if (!emailRegex.test(emailInput.value)) {
+            if (errorDiv) errorDiv.classList.remove('hidden');
+            emailInput.classList.add('border-red-600');
+        } else {
+            if (errorDiv) errorDiv.classList.add('hidden');
+            emailInput.classList.remove('border-red-600');
+        }
+    });
+
+    const birthdateInput = document.getElementById('birthdate');
+    const ageInput = document.getElementById('age');
+
+    birthdateInput.addEventListener('change', function () {
+        if (this.value) {
+            const today = new Date();
+            const birthDate = new Date(this.value);
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const monthDiff = today.getMonth() - birthDate.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            ageInput.value = age.toString();
+        }
+    });
+  </script>
+</body>
+</html>
